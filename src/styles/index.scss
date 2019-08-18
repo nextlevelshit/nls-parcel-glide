@@ -9,7 +9,7 @@
 @import "glide";
 
 section {
-  @apply fixed inset-0 flex flex-col justify-center overflow-hidden;
+  @apply fixed inset-0 flex flex-col justify-center overflow-hidden mt-0;
   
   transition: all 240ms;
   transition-delay: 60ms;
@@ -20,11 +20,16 @@ section {
   }
 
   &.--full-screen {
-    @apply overflow-y-auto overflow-x-hidden;
+    @apply overflow-y-auto overflow-x-hidden static mt-10;
 
     transform: scale(1);
+    min-height: 100vh;
 
     .glide {
+
+      &__slides {
+        touch-action: pan-y;
+      }
 
       &__slide {
 
@@ -32,9 +37,26 @@ section {
           @apply opacity-0;
         }
 
-        &__content {
-          @apply block;
-        }
+        // &__content {
+        //   @apply flex;
+        // }
+      }
+    }
+  }
+
+  .content {
+    @apply overflow-hidden mt-20;
+
+    animation: fadeIn 1200ms;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        height: 0vh;
+      }
+      to {
+        opacity: 1;
+        height: 100vh;
       }
     }
   }
