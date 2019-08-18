@@ -29,10 +29,10 @@
     }
 
     h1, h2 {
-      @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-bold text-white text-xl p-6;
+      @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-bold text-white text-xl p-6 break-words;
 
       line-height: 0.8;
-      word-break: break-all;
+      // word-break: break-all;
       // mix-blend-mode: exclusion;
 
       @screen md {
