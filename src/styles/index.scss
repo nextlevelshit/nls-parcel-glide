@@ -34,7 +34,7 @@ section {
       &__slide {
 
         &:not(.glide__slide--active) {
-          @apply opacity-0;
+          @apply opacity-25;
         }
 
         // &__content {
@@ -48,15 +48,16 @@ section {
     @apply overflow-hidden mt-20;
 
     animation: fadeIn 1200ms;
+    min-height: 100vh;
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        height: 0vh;
+        // height: 0vh;
       }
       to {
         opacity: 1;
-        height: 100vh;
+        // height: 100vh;
       }
     }
   }

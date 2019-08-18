@@ -18,6 +18,10 @@ h1, h2, h3, h4, h5 {
   font-family: 'Heebo', sans-serif;
 }
 
+h2 {
+  @apply font-hairline text-xl mb-2;
+}
+
 p {
   line-height: 125%;
   text-align: justify;

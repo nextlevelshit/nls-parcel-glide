@@ -4,7 +4,7 @@ import Glide from '@glidejs/glide'
 const defaultSettings = {
   type: 'slider',
   focusAt: 'center',
-  gap: 0,
+  gap: 10,
   dragThreshold: false,
   touchRatio: 1,
   touchAngle: 90,
@@ -22,35 +22,16 @@ const allSlidesEl = document.querySelectorAll(slideClass)
 // const contentEl = document.createElement('section')
 
 let inAction = false
+let inDetails = null
 
 allSlidesEl.forEach((slide, index) => {
   const content = slide.querySelector(contentClass)
 
   slide.addEventListener('click', e => {
     if (glide.index === index) {
-      sectionEl.classList.toggle('--full-screen')
-
-      if (glide.disabled) {
-        glide.enable()
-
-        if (content) {
-          const contentEl = sectionEl.querySelector(`.${contentCloneClassName}`)
-          contentEl.remove()
-        }
-
-      } else {
-        glide.disable()
-
-        if (content) {
-          const contentEl = content.cloneNode(true)
-          contentEl.className = contentCloneClassName
-          sectionEl.insertAdjacentElement('beforeend', contentEl)
-        }
-      }
+      toggleDetails(index)
     } else {
-      if (!glide.disabled) {
-        glide.go(`=${index}`)
-      }
+      glide.go(`=${index}`)
     }
   })
 })
@@ -69,9 +50,9 @@ glide.on('swipe.end', () => {
   }
 })
 
-// glide.on('run', (move) => {
-//   console.log(move, glide.index)
-// })
+glide.on('run', () => {
+  toggleDetails(glide.index)
+})
 
 glide.mount()
 
@@ -83,4 +64,32 @@ function zoomIn() {
 
 function zoomOut() {
   sectionEl.classList.add('--swiping')
+}
+
+function toggleDetails(index) {
+  const slide = allSlidesEl[index]
+  const content = slide.querySelector(contentClass)
+  const prevContentEl = sectionEl.querySelector(`.${contentCloneClassName}`)
+
+  if (prevContentEl) {
+    prevContentEl.remove()
+  }
+
+  if (content) {
+    const contentEl = content.cloneNode(true)
+
+    if (inDetails === index) {
+      sectionEl.classList.remove('--full-screen')
+      inDetails = null
+    } else {
+      contentEl.className = contentCloneClassName
+      sectionEl.insertAdjacentElement('beforeend', contentEl)
+      sectionEl.classList.add('--full-screen')
+
+      inDetails = index
+    }
+  } else {
+    sectionEl.classList.remove('--full-screen')
+    inDetails = index
+  }
 }

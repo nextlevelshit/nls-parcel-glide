@@ -1,12 +1,21 @@
 .glide {
 
+  // flex: 1;
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+
+  &__track {
+    height: 20vw;
+  }
+
   &__slides {
     @apply .h-full;
   }
 
   &__slide {
     padding-top: 20vw;
-    transition: all 340ms;
+    // transition: all 340ms;
 
     @apply relative h-full bg-center bg-cover opacity-25;
 
@@ -25,14 +34,16 @@
       }
     }
 
-    &:before {
-      @apply absolute inset-0;
+    &:not(.--no-shadow) {
 
-
-      content: '';
-      mix-blend-mode: hard-light;
-      background: linear-gradient(45deg, black, rgba(0, 0, 0, 0));
-      transition: background 300ms;
+      &:before {
+        @apply absolute inset-0;
+  
+        content: '';
+        mix-blend-mode: hard-light;
+        background: linear-gradient(45deg, black, rgba(0, 0, 0, 0));
+        transition: background 300ms;
+      }
     }
 
     h1, h2 {
