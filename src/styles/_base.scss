@@ -19,6 +19,16 @@ p {
 }
 
 a {
+  @apply text-indigo-600 underline;
+
+  &:hover,
+  &:focus {
+    @apply no-underline;
+  }
+
+  &:active {
+    @apply text-indigo-800;
+  }
 }
 
 article {
@@ -31,15 +41,32 @@ article {
   }
 
   footer {
-    
-    @apply sticky top-0 bg-gray-900 text-white .py-20;
+    @apply absolute bottom-0 left-0 right-0 flex justify-between p-5 text-sm opacity-100;
 
-    h1 {
-      @apply mt-10 text-2xl font-hairline;
+    transition: all 300ms;
+
+    &:hover {
+      @apply opacity-100;
     }
 
-    p {
-      @apply mb-10;
+    @screen md {
+      @apply opacity-50;
+    }
+
+    ul {
+      @apply flex flex-row;
+
+      li {
+        @apply pl-2;
+      }
+    }
+
+    .profiles {
+      @apply flex;
+    }
+
+    .copyright {
+      @apply text-right;
     }
   }
 }

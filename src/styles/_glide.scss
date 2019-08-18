@@ -9,7 +9,7 @@
     // padding-top: 33.333vw;
     transition: all 340ms;
 
-    @apply relative h-full bg-center bg-cover opacity-75;
+    @apply relative h-full bg-center bg-cover opacity-25;
 
     &__content {
       @apply absolute left-0 hidden text-gray-900;
@@ -18,14 +18,24 @@
     }
 
     &--active {
-      @apply opacity-100;
+      @apply opacity-100 cursor-pointer;
+
+      &:hover {
+
+        &:before {
+          background: linear-gradient(45deg, black, rgba(0, 0, 0, 0.2));
+        }
+      }
     }
 
     &:before {
       @apply absolute inset-0;
+
+
       content: '';
       mix-blend-mode: hard-light;
-      background: linear-gradient(45deg, black, transparent);
+      background: linear-gradient(45deg, black, rgba(0, 0, 0, 0));
+      transition: background 300ms;
     }
 
     h1, h2 {
