@@ -6,15 +6,12 @@
 
   &__slide {
     padding-top: 20vw;
-    // padding-top: 33.333vw;
     transition: all 340ms;
 
     @apply relative h-full bg-center bg-cover opacity-25;
 
     &__content {
-      @apply absolute left-0 hidden text-gray-900;
-
-      top: 100%;
+      @apply hidden text-gray-900;
     }
 
     &--active {
@@ -42,8 +39,6 @@
       @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-bold text-white text-xl p-6 break-words;
 
       line-height: 0.8;
-      // word-break: break-all;
-      // mix-blend-mode: exclusion;
 
       @screen md {
         @apply text-2xl;

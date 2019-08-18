@@ -26,15 +26,6 @@ section {
 
     .glide {
 
-      &__track {
-        // @apply overflow-y-visible;
-      }
-      
-      &__slides {
-        // @apply overflow-y-visible;
-        // @apply overflow-y-auto;
-      }
-
       &__slide {
 
         &:not(.glide__slide--active) {
