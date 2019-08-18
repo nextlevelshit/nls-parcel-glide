@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+@import "base";
+@import "glide";
+
+section {
+  @apply fixed inset-0 flex flex-col justify-center overflow-hidden;
+  
+  transition: all 240ms;
+  transition-delay: 60ms;
+  transform: scale(calc(5/3));
+  
+  &.--swiping {
+    transform: scale(1);
+  }
+
+  &.--full-screen {
+    @apply overflow-y-auto overflow-x-hidden;
+
+    transform: scale(1);
+
+    .glide {
+
+      &__track {
+        // @apply overflow-y-visible;
+      }
+      
+      &__slides {
+        // @apply overflow-y-visible;
+        // @apply overflow-y-auto;
+      }
+
+      &__slide {
+
+        &:not(.glide__slide--active) {
+          @apply opacity-0;
+        }
+
+        &__content {
+          @apply block;
+        }
+      }
+    }
+  }
+}

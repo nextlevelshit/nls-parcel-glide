@@ -1,0 +1,47 @@
+.glide {
+
+  &__slides {
+    @apply .h-full;
+  }
+
+  &__slide {
+    padding-top: 20vw;
+    // padding-top: 33.333vw;
+    transition: all 340ms;
+
+    @apply relative h-full bg-center bg-cover opacity-75;
+
+    &__content {
+      @apply absolute left-0 hidden text-gray-900;
+
+      top: 100%;
+    }
+
+    &--active {
+      @apply opacity-100;
+    }
+
+    &:before {
+      @apply absolute inset-0;
+      content: '';
+      mix-blend-mode: hard-light;
+      background: linear-gradient(45deg, black, transparent);
+    }
+
+    h1, h2 {
+      @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-bold text-white text-xl p-6;
+
+      line-height: 0.8;
+      word-break: break-all;
+      // mix-blend-mode: exclusion;
+
+      @screen md {
+        @apply text-2xl;
+      }
+
+      @screen xl {
+        @apply text-3xl;
+      }
+    }
+  }
+}
