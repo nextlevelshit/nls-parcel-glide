@@ -4,7 +4,7 @@ import Glide from '@glidejs/glide'
 const defaultSettings = {
   type: 'slider',
   focusAt: 'center',
-  gap: 10,
+  gap: 0,
   dragThreshold: false,
   touchRatio: 1,
   touchAngle: 90,

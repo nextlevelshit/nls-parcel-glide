@@ -15,7 +15,7 @@
 
   &__slide {
     padding-top: 20vw;
-    // transition: all 340ms;
+    transition: opacity 340ms;
 
     @apply relative h-full bg-center bg-cover opacity-25;
 
@@ -46,8 +46,8 @@
       }
     }
 
-    h1, h2 {
-      @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-bold text-white text-xl p-6 break-words;
+    h1 {
+      @apply m-0 absolute inset-0 flex justify-center items-center uppercase font-black text-white text-xl p-6 break-words;
 
       line-height: 0.8;
 
