@@ -1,5 +1,5 @@
 {
-  "name": "nls-parcel-gk",
+  "name": "nls-parcel-glide",
   "version": "1.0.0-0",
   "description": "",
   "main": "index.html",
@@ -19,8 +19,6 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@types/swiper": "^4.4.3",
-    "parcel-bundler": "^1.10.3",
-    "swiper": "^4.5.0"
+    "parcel-bundler": "^1.10.3"
   }
 }
